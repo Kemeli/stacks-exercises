@@ -1,0 +1,35 @@
+name: my_template
+description: template
+types:
+  - app-template
+inputs:
+  - label: Project name
+    type: text
+    name: project_name
+    default: project-name
+  - label: Your notes
+    type: text
+    name: your_notes
+    default: stk create app app-test -p /mnt/c/Users/Kemeli/Desktop/current_work/labs/repo_stack/template-test
+  - label: Estrutura de pastas
+    type: text
+    name: pasta
+    default: pasta1/pasta2
+  - label: Project id
+    type: int
+    name: project_id
+    default: "10"
+  - label: Select the type of project
+    type: multiselect
+    name: type_of_project
+    items:
+      - personal
+      - work
+computedInputs:
+  estrutura_base: "{{inputs.project_name}}.{{inputs.pasta}}"
+  pasta_final: "{{estrutura_base | replace('.', '/')}}"
+hooks:
+  - type: run
+    trigger: after-render
+    commands:
+      - "tree ."

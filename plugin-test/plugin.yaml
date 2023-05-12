@@ -1,0 +1,31 @@
+name: my-plugin
+description: plugin para testar meus conhecimentos 
+display-name: my-plugin
+picture: plugin.png
+category: backend # Ref: https://docs.stackspot.com/docs/create-stacks/yaml-files/plugin/#category
+compatibility:
+  - java
+  - spring
+about: docs/about.md
+usage: docs/usage.md
+use-case: docs/use-case.md
+implementation: docs/implementation.md
+technologies: # Ref: https://docs.stackspot.com/docs/create-stacks/yaml-files/yaml/#technologies
+  - "Api"
+types:
+  - app
+inputs:
+  - label: Message to main
+    type: text
+    name: main_message
+    default: "hello world"
+hooks:
+  - type: edit 
+    trigger: after-render
+    path: main.c
+    changes:
+      - insert:
+          line: 0
+          snippet: snnippets/main.txt
+          when:
+            not-exists-snippet: snnippets/main.txt

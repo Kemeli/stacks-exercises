@@ -1,12 +1,12 @@
 type: app
 description: Default stackfile usecase description
 # template used to create the project
-template: repo_stack/<template-name>
+template: repo_stack/template-test
 inputs:
   some_input: value
 # list of plugins to be applied after project creation
 plugins:
-  - plugin: repo_stack/<plugin-name>
+  - plugin: repo_stack/plugin-test
     inputs:
       some_input: value
       some_list:
