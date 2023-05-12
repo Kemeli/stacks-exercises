@@ -1,0 +1,10 @@
+Your data:
+
+notes:
+{{inputs.your_notes}}
+
+project id:
+{{inputs.project_id}}
+
+type of project:
+{{inputs.type_of_project}}
